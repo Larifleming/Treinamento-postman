@@ -13,12 +13,13 @@ jobs:
 
     steps:
       # Step 1: Checkout do código
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
       # Step 2: Verificar versões do Newman e Node.js
       - name: Check versions of Newman and Node.js
         run: |
-          newman --version || echo "Newman not installed"
+          newman --version || echo "Newman is not installed"
           node --version
 
       # Step 3: Instalar o reporter htmlextra
@@ -39,9 +40,5 @@ jobs:
           name: report
           path: ./result/Report.html
 
-                 path: ./result/Report.html
-
-
-      
 
       
